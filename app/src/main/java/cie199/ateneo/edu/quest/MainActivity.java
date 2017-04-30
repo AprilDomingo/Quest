@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent launchIntent = new Intent(MainActivity.this, Maps.class);
+                        Intent launchIntent = new Intent(MainActivity.this, Navigate.class);
                         startActivity(launchIntent);
 
                         return;

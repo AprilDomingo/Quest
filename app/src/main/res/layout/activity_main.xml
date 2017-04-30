@@ -43,10 +43,10 @@
             android:id="@+id/btn_maps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:text="MAPS"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/btn_itinerary"
-            android:layout_alignParentStart="true" />
+            android:layout_marginTop="23dp"
+            android:text="NAVIGATE" />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -4,8 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.ArrayList;
+
+import static android.R.layout.simple_list_item_1;
 
 public class AddTask extends AppCompatActivity {
 
@@ -13,6 +18,7 @@ public class AddTask extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
+
 
         Button btnAdd = (Button) findViewById(R.id.btn_add);
         btnAdd.setOnClickListener(
@@ -33,6 +39,7 @@ public class AddTask extends AppCompatActivity {
 
                         startActivity(launchIntent);
 
+                        finish();
                         return;
                     }
                 }
