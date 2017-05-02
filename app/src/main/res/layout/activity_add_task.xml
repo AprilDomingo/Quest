@@ -74,5 +74,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ADD" />
+
+        <ListView
+            android:id="@+id/lst_itinerary"
+            android:layout_width="match_parent"
+            android:layout_height="248dp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

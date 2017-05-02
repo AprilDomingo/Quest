@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cie199.ateneo.edu.quest">
 
+    <uses-permission android:name="android.permission.INTERNET">
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/questlogo"
@@ -20,5 +22,6 @@
         <activity android:name=".Itinerary" />
         <activity android:name=".Navigate"></activity>
     </application>
+    </uses-permission>
 
 </manifest>

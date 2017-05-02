@@ -27,19 +27,6 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        Button btnItinerary = (Button) findViewById(R.id.btn_itinerary);
-        btnItinerary.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent launchIntent = new Intent(MainActivity.this, Itinerary.class);
-                        startActivity(launchIntent);
-
-                        return;
-                    }
-                }
-        );
-
         Button btnMaps = (Button) findViewById(R.id.btn_maps);
         btnMaps.setOnClickListener(
                 new View.OnClickListener() {
