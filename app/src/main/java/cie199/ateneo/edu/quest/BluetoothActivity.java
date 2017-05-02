@@ -25,7 +25,7 @@ public class BluetoothActivity extends BlunoLibrary {
     private EditText serialSendText;
     private TextView serialReceivedText;
     private Button buttonGPS;
-    private TextView coordinates;
+    public TextView coordinates;
     private LocationManager locationManager;
     private LocationListener locationListener;
 
@@ -118,24 +118,25 @@ public class BluetoothActivity extends BlunoLibrary {
         }
     }
 
-    private void configureButton() {
+    void configureButton(){
+        // first check for permissions
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.INTERNET}
+                        ,10);
+            }
+            return;
+        }
+        // this code won't execute IF permissions are not allowed, because in the line above there is return statement.
         buttonGPS.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                locationManager.requestLocationUpdates("gps", 3000, 0, locationListener);
+            public void onClick(View view) {
+                //noinspection MissingPermission
+                locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
             }
         });
     }
+
 
     protected void onResume(){
         super.onResume();
@@ -156,8 +157,8 @@ public class BluetoothActivity extends BlunoLibrary {
         super.onPause();
         onPauseProcess();														//onPause Process by BlunoLibrary
     }
-
     protected void onStop() {
+
         super.onStop();
         onStopProcess();														//onStop Process by BlunoLibrary
     }
@@ -169,7 +170,7 @@ public class BluetoothActivity extends BlunoLibrary {
     }
 
     @Override
-    public void onConectionStateChange(connectionStateEnum theConnectionState) {//Once connection state changes, this function will be called
+    public void onConnectionStateChange(connectionStateEnum theConnectionState) {//Once connection state changes, this function will be called
         switch (theConnectionState) {											//Four connection state
             case isConnected:
                 buttonScan.setText("Connected");

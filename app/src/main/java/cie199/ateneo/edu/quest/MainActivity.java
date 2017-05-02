@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        Button btnItinerary = (Button) findViewById(R.id.btn_itinerary);
-        btnItinerary.setOnClickListener(
+        Button btnMaps = (Button) findViewById(R.id.btn_maps);
+        btnMaps.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent launchIntent = new Intent(MainActivity.this, Itinerary.class);
+                        Intent launchIntent = new Intent(MainActivity.this, MapsActivity.class);
                         startActivity(launchIntent);
 
                         return;
@@ -40,12 +40,12 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        Button btnMaps = (Button) findViewById(R.id.btn_maps);
-        btnMaps.setOnClickListener(
+        Button btnBluetooth = (Button) findViewById(R.id.btn_bluetooth);
+        btnBluetooth.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent launchIntent = new Intent(MainActivity.this, MapsActivity.class);
+                        Intent launchIntent = new Intent(MainActivity.this, BluetoothActivity.class);
                         startActivity(launchIntent);
 
                         return;
