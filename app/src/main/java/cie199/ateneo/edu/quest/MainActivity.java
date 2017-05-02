@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent launchIntent = new Intent(MainActivity.this, Maps.class);
+                        Intent launchIntent = new Intent(MainActivity.this, MapsActivity.class);
                         startActivity(launchIntent);
 
                         return;
